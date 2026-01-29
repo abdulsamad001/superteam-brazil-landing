@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superteam Brazil 🇧🇷 | Home for Solana Builders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple-primary: #9945FF;
+            --purple-dark: #7B2FCF;
+            --green-brazil: #009B3A;
+            --blue-brazil: #002776;
+            --yellow-brazil: #FFDF00;
+            --dark-bg: #0A0A0F;
+            --dark-surface: #13131A;
+            --dark-elevated: #1A1A24;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A8A8B8;
+            --gradient-purple: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+            --gradient-brazil: linear-gradient(135deg, #009B3A 0%, #002776 50%, #FFDF00 100%);
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(153, 69, 255, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-primary);
+        }
+
+        .btn-primary {
+            background: var(--gradient-purple);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(153, 69, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(153, 69, 255, 0.15) 0%, transparent 70%);
+            transform: translate(-50%, -20%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -20%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -20%) scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .brazil-flag {
+            display: inline-flex;
+            gap: 4px;
+            margin-bottom: 24px;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .flag-stripe {
+            width: 60px;
+            height: 8px;
+            border-radius: 4px;
+            animation: expandWidth 1s ease-out forwards;
+            transform-origin: left;
+        }
+
+        .flag-green { background: var(--green-brazil); animation-delay: 0.2s; }
+        .flag-blue { background: var(--blue-brazil); animation-delay: 0.3s; }
+        .flag-yellow { background: var(--yellow-brazil); animation-delay: 0.4s; }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 60px; }
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: slideInUp 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero .highlight {
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+            animation: slideInUp 0.8s ease-out 0.5s both;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.7s both;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid var(--purple-primary);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--purple-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Stats floating cards */
+        .hero-stats {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: grid;
+            gap: 16px;
+            animation: floatIn 1s ease-out 0.9s both;
+        }
+
+        @keyframes floatIn {
+            from { opacity: 0; transform: translateY(-50%) translateX(50px); }
+            to { opacity: 1; transform: translateY(-50%) translateX(0); }
+        }
+
+        .stat-card {
+            background: var(--dark-elevated);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(153, 69, 255, 0.2);
+            backdrop-filter: blur(10px);
+            min-width: 180px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .stat-card:nth-child(2) { animation-delay: 1s; }
+        .stat-card:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 900;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(153, 69, 255, 0.1);
+            color: var(--purple-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            border: 1px solid rgba(153, 69, 255, 0.3);
+        }
+
+        .section-title {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .pillar-card {
+            background: var(--dark-surface);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(153, 69, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-purple);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--purple-primary);
+            box-shadow: 0 20px 60px rgba(153, 69, 255, 0.2);
+        }
+
+        .pillar-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pillar-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pillar-card h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .pillar-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Impact Stats Section */
+        .impact {
+            padding: 120px 0;
+            background: var(--dark-surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(153, 69, 255, 0.3), transparent);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            text-align: center;
+        }
+
+        .impact-item {
+            position: relative;
+        }
+
+        .impact-number {
+            font-size: 64px;
+            font-weight: 900;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Mono', monospace;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .impact-label {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .impact-sublabel {
+            font-size: 14px;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 120px 0;
+        }
+
+        .events-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .upcoming-events, .past-events {
+            background: var(--dark-surface);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(153, 69, 255, 0.1);
+        }
+
+        .upcoming-events h3, .past-events h3 {
+            font-size: 28px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .event-card {
+            background: var(--dark-elevated);
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(153, 69, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateX(8px);
+            border-color: var(--purple-primary);
+        }
+
+        .event-date {
+            display: inline-block;
+            background: rgba(153, 69, 255, 0.2);
+            color: var(--purple-primary);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .event-card h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .event-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Members Preview */
+        .members-preview {
+            padding: 120px 0;
+            background: var(--dark-surface);
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .member-card {
+            background: var(--dark-elevated);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(153, 69, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .member-card.core-team {
+            background: linear-gradient(135deg, rgba(153, 69, 255, 0.1) 0%, rgba(20, 241, 149, 0.05) 100%);
+            border-color: var(--purple-primary);
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--purple-primary);
+            box-shadow: 0 20px 60px rgba(153, 69, 255, 0.2);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--gradient-purple);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 900;
+        }
+
+        .member-name {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .member-role {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .skill-tag {
+            background: rgba(153, 69, 255, 0.2);
+            color: var(--purple-primary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .view-all-btn {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 120px 0;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .partner-logo {
+            background: var(--dark-surface);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(153, 69, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            transition: all 0.3s ease;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-secondary);
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+            border-color: var(--purple-primary);
+            color: var(--text-primary);
+        }
+
+        /* Wall of Love */
+        .wall-of-love {
+            padding: 120px 0;
+            background: var(--dark-surface);
+        }
+
+        .tweets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .tweet-card {
+            background: var(--dark-elevated);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(153, 69, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tweet-card:hover {
+            border-color: var(--purple-primary);
+            transform: translateY(-4px);
+        }
+
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .tweet-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+        }
+
+        .tweet-author h4 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .tweet-author p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .tweet-content {
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .tweet-date {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 120px 0;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: var(--dark-surface);
+            margin-bottom: 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(153, 69, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 24px 32px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            color: var(--purple-primary);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 32px 24px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Join CTA Section */
+        .join-cta {
+            padding: 120px 0;
+            background: var(--dark-surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .join-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(153, 69, 255, 0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+        }
+
+        .join-cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .join-cta h2 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 24px;
+        }
+
+        .join-cta p {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .social-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--dark-elevated);
+            border: 1px solid rgba(153, 69, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--purple-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(153, 69, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(153, 69, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--purple-primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(153, 69, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-stats {
+                position: static;
+                transform: none;
+                margin-top: 60px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .events-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 40px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .join-cta h2 {
+                font-size: 40px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-gradient">Superteam</span> Brazil 🇧🇷
+            </div>
+            <ul class="nav-links">
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#members">Members</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="members.html" class="btn-primary">Join Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="brazil-flag">
+                    <div class="flag-stripe flag-green"></div>
+                    <div class="flag-stripe flag-blue"></div>
+                    <div class="flag-stripe flag-yellow"></div>
+                </div>
+                <h1>
+                    Building the Future of <span class="highlight">Solana</span> in Brazil
+                </h1>
+                <p>
+                    Join Latin America's largest Web3 community. Connect with builders, creators, and founders shaping the next generation of blockchain innovation.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#" class="btn-primary">Join Community</a>
+                    <a href="#" class="btn-secondary">Explore Opportunities</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Events Hosted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$250K+</div>
+                    <div class="stat-label">Bounties Paid</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">OUR MISSION</span>
+                <h2 class="section-title">What We Do</h2>
+                <p class="section-description">
+                    Empowering Brazilian builders with the resources, network, and opportunities to thrive in the Solana ecosystem
+                </p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card reveal">
+                    <span class="pillar-icon">🚀</span>
+                    <h3>Builder Support</h3>
+                    <p>Expert mentorship, technical guidance, and hands-on support for developers building on Solana</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <span class="pillar-icon">🎯</span>
+                    <h3>Event Programming</h3>
+                    <p>Regular meetups, hackathons, and workshops connecting the Brazilian Web3 community</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <span class="pillar-icon">💰</span>
+                    <h3>Grants & Funding</h3>
+                    <p>Access to ecosystem grants, investment opportunities, and financial support for projects</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <span class="pillar-icon">💼</span>
+                    <h3>Job Opportunities</h3>
+                    <p>Exclusive job postings, bounties, and contract work from leading Solana projects</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <span class="pillar-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Comprehensive workshops, courses, and resources to master Solana development</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <span class="pillar-icon">🤝</span>
+                    <h3>Network</h3>
+                    <p>Connect with founders, investors, and ecosystem leaders across Latin America</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">IMPACT</span>
+                <h2 class="section-title">Our Numbers Speak</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-item reveal">
+                    <div class="impact-number">500+</div>
+                    <div class="impact-label">Community Members</div>
+                    <div class="impact-sublabel">Developers, designers & founders</div>
+                </div>
+                <div class="impact-item reveal">
+                    <div class="impact-number">50+</div>
+                    <div class="impact-label">Events Hosted</div>
+                    <div class="impact-sublabel">Meetups, workshops & hackathons</div>
+                </div>
+                <div class="impact-item reveal">
+                    <div class="impact-number">120+</div>
+                    <div class="impact-label">Bounties Completed</div>
+                    <div class="impact-sublabel">Projects shipped</div>
+                </div>
+                <div class="impact-item reveal">
+                    <div class="impact-number">$250K+</div>
+                    <div class="impact-label">Total Earnings</div>
+                    <div class="impact-sublabel">Paid to community</div>
+                </div>
+                <div class="impact-item reveal">
+                    <div class="impact-number">15+</div>
+                    <div class="impact-label">Partner Projects</div>
+                    <div class="impact-sublabel">Ecosystem collaborations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">EVENTS</span>
+                <h2 class="section-title">Join Our Events</h2>
+                <p class="section-description">
+                    Connect with the community at our regular meetups, workshops, and special events
+                </p>
+            </div>
+            <div class="events-container">
+                <div class="upcoming-events reveal">
+                    <h3>🗓️ Upcoming Events</h3>
+                    <div class="event-card">
+                        <span class="event-date">FEB 15, 2026</span>
+                        <h4>Solana Developer Workshop</h4>
+                        <p>Learn Anchor framework and build your first dApp on Solana</p>
+                    </div>
+                    <div class="event-card">
+                        <span class="event-date">FEB 28, 2026</span>
+                        <h4>Web3 Founders Meetup</h4>
+                        <p>Network with founders and investors in the Brazilian ecosystem</p>
+                    </div>
+                    <div class="event-card">
+                        <span class="event-date">MAR 10, 2026</span>
+                        <h4>Solana Hackathon Brazil</h4>
+                        <p>48-hour hackathon with $50K in prizes and mentorship</p>
+                    </div>
+                    <div class="view-all-btn">
+                        <a href="#" class="btn-primary">View All Events</a>
+                    </div>
+                </div>
+                <div class="past-events reveal">
+                    <h3>📸 Past Events</h3>
+                    <div class="event-card">
+                        <span class="event-date">JAN 10, 2026</span>
+                        <h4>São Paulo Web3 Summit</h4>
+                        <p>250+ attendees, 15 speakers, amazing energy</p>
+                    </div>
+                    <div class="event-card">
+                        <span class="event-date">DEC 5, 2025</span>
+                        <h4>Solana Mobile Workshop</h4>
+                        <p>Building mobile-first dApps on Solana</p>
+                    </div>
+                    <div class="event-card">
+                        <span class="event-date">NOV 20, 2025</span>
+                        <h4>DeFi Deep Dive</h4>
+                        <p>Exploring the future of decentralized finance</p>
+                    </div>
+                    <div class="view-all-btn">
+                        <a href="#" class="btn-secondary">Event Gallery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Preview -->
+    <section class="members-preview" id="members">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">COMMUNITY</span>
+                <h2 class="section-title">Meet Our Members</h2>
+                <p class="section-description">
+                    Join a diverse community of talented builders, creators, and innovators
+                </p>
+            </div>
+            <div class="members-grid">
+                <div class="member-card core-team reveal">
+                    <div class="member-avatar">AS</div>
+                    <div class="member-name">Ana Silva</div>
+                    <div class="member-role">Lead · Superteam Brazil</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Core Team</span>
+                        <span class="skill-tag">Strategy</span>
+                    </div>
+                </div>
+                <div class="member-card core-team reveal">
+                    <div class="member-avatar">RC</div>
+                    <div class="member-name">Ricardo Costa</div>
+                    <div class="member-role">Tech Lead · BlockBuilder</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Core Team</span>
+                        <span class="skill-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="member-card reveal">
+                    <div class="member-avatar">MP</div>
+                    <div class="member-name">Marina Pereira</div>
+                    <div class="member-role">Designer · Solana Labs</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Design</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                </div>
+                <div class="member-card reveal">
+                    <div class="member-avatar">LN</div>
+                    <div class="member-name">Lucas Nunes</div>
+                    <div class="member-role">Developer · DeFi Project</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Frontend</span>
+                        <span class="skill-tag">React</span>
+                    </div>
+                </div>
+                <div class="member-card reveal">
+                    <div class="member-avatar">CM</div>
+                    <div class="member-name">Carla Mendes</div>
+                    <div class="member-role">Content Creator</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Content</span>
+                        <span class="skill-tag">Marketing</span>
+                    </div>
+                </div>
+                <div class="member-card reveal">
+                    <div class="member-avatar">TS</div>
+                    <div class="member-name">Thiago Santos</div>
+                    <div class="member-role">Founder · NFT Marketplace</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Biz Dev</span>
+                        <span class="skill-tag">Growth</span>
+                    </div>
+                </div>
+                <div class="member-card reveal">
+                    <div class="member-avatar">JA</div>
+                    <div class="member-name">Julia Almeida</div>
+                    <div class="member-role">Smart Contract Dev</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">Anchor</span>
+                    </div>
+                </div>
+                <div class="member-card reveal">
+                    <div class="member-avatar">FR</div>
+                    <div class="member-name">Felipe Rocha</div>
+                    <div class="member-role">Community Manager</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Community</span>
+                        <span class="skill-tag">Events</span>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-btn reveal">
+                <a href="members.html" class="btn-primary">View All Members →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">ECOSYSTEM</span>
+                <h2 class="section-title">Trusted Partners</h2>
+                <p class="section-description">
+                    Working with leading projects in the Solana ecosystem
+                </p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo reveal">Solana</div>
+                <div class="partner-logo reveal">Magic Eden</div>
+                <div class="partner-logo reveal">Jupiter</div>
+                <div class="partner-logo reveal">Marinade</div>
+                <div class="partner-logo reveal">Jito</div>
+                <div class="partner-logo reveal">Tensor</div>
+                <div class="partner-logo reveal">Phantom</div>
+                <div class="partner-logo reveal">Drift</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wall of Love -->
+    <section class="wall-of-love">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">TESTIMONIALS</span>
+                <h2 class="section-title">Wall of Love</h2>
+                <p class="section-description">
+                    What our community members are saying
+                </p>
+            </div>
+            <div class="tweets-grid">
+                <div class="tweet-card reveal">
+                    <div class="tweet-header">
+                        <div class="tweet-avatar">MR</div>
+                        <div class="tweet-author">
+                            <h4>Maria Rodrigues</h4>
+                            <p>@mariadev</p>
+                        </div>
+                    </div>
+                    <div class="tweet-content">
+                        "Superteam Brazil helped me land my first Web3 job. The community support and opportunities are incredible! 🚀"
+                    </div>
+                    <div class="tweet-date">2 days ago</div>
+                </div>
+                <div class="tweet-card reveal">
+                    <div class="tweet-header">
+                        <div class="tweet-avatar">PL</div>
+                        <div class="tweet-author">
+                            <h4>Pedro Lima</h4>
+                            <p>@pedrobuilds</p>
+                        </div>
+                    </div>
+                    <div class="tweet-content">
+                        "Best developer community in Brazil. The workshops and mentorship are game-changing for anyone getting into Solana."
+                    </div>
+                    <div class="tweet-date">5 days ago</div>
+                </div>
+                <div class="tweet-card reveal">
+                    <div class="tweet-header">
+                        <div class="tweet-avatar">BS</div>
+                        <div class="tweet-author">
+                            <h4>Beatriz Silva</h4>
+                            <p>@beasolana</p>
+                        </div>
+                    </div>
+                    <div class="tweet-content">
+                        "Won my first hackathon through Superteam Brazil! The network here is unmatched. So grateful for this community 💜"
+                    </div>
+                    <div class="tweet-date">1 week ago</div>
+                </div>
+                <div class="tweet-card reveal">
+                    <div class="tweet-header">
+                        <div class="tweet-avatar">GC</div>
+                        <div class="tweet-author">
+                            <h4>Gustavo Costa</h4>
+                            <p>@gustavotech</p>
+                        </div>
+                    </div>
+                    <div class="tweet-content">
+                        "Superteam Brazil is building something special. The energy at the meetups is electric ⚡"
+                    </div>
+                    <div class="tweet-date">1 week ago</div>
+                </div>
+                <div class="tweet-card reveal">
+                    <div class="tweet-header">
+                        <div class="tweet-avatar">IM</div>
+                        <div class="tweet-author">
+                            <h4>Isabela Martins</h4>
+                            <p>@isabelaweb3</p>
+                        </div>
+                    </div>
+                    <div class="tweet-content">
+                        "From zero to shipping my first Solana dApp in 3 months thanks to the Superteam Brazil community. Best decision ever!"
+                    </div>
+                    <div class="tweet-date">2 weeks ago</div>
+                </div>
+                <div class="tweet-card reveal">
+                    <div class="tweet-header">
+                        <div class="tweet-avatar">DA</div>
+                        <div class="tweet-author">
+                            <h4>Daniel Alves</h4>
+                            <p>@danalves</p>
+                        </div>
+                    </div>
+                    <div class="tweet-content">
+                        "The grants and bounties through Superteam Brazil have been life-changing. Finally making a living building what I love 💪"
+                    </div>
+                    <div class="tweet-date">2 weeks ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>What is Superteam Brazil?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Superteam Brazil is the Brazilian branch of Superteam, a global network of talented builders in the Solana ecosystem. We connect developers, designers, creators, and founders with opportunities, resources, and a thriving community to build the future of Web3 in Brazil.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>How do I become a member?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Join our Telegram or Discord community and introduce yourself! We welcome builders of all skill levels. Attend our events, participate in discussions, and start contributing to the community. Active members can apply to become official Superteam Brazil members.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>What opportunities are available?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We offer bounties, grants, full-time job opportunities, freelance projects, hackathons, and mentorship programs. Members get exclusive access to opportunities from leading Solana projects and ecosystem partners.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>How can projects partner with us?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            If you're a Solana project looking to connect with talented Brazilian builders, reach out to us via Telegram or email. We can help with talent sourcing, community building, event sponsorship, and ecosystem development in Brazil.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Do I need to be a developer to join?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Not at all! We welcome designers, content creators, community managers, marketers, business developers, and anyone passionate about Web3 and Solana. There are opportunities for all types of builders in our community.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA -->
+    <section class="join-cta">
+        <div class="container">
+            <div class="join-cta-content reveal">
+                <h2>Ready to Build?</h2>
+                <p>Join the most active Solana community in Brazil</p>
+                <a href="#" class="btn-primary">Join Superteam Brazil</a>
+                <div class="social-links">
+                    <a href="#" class="social-btn">𝕏</a>
+                    <a href="#" class="social-btn">📱</a>
+                    <a href="#" class="social-btn">💬</a>
+                    <a href="#" class="social-btn">in</a>
+                    <a href="#" class="social-btn">📷</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><span class="logo-gradient">Superteam</span> Brazil 🇧🇷</h3>
+                    <p>Building the home for Solana builders in Brazil. Join us and shape the future of Web3 in Latin America's largest market.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Opportunities</h4>
+                    <ul>
+                        <li><a href="#">Bounties</a></li>
+                        <li><a href="#">Grants</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Hackathons</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Workshops</a></li>
+                        <li><a href="https://superteam.fun">Global Superteam</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 Superteam Brazil. Part of the global Superteam network. Building on Solana.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

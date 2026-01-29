@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members | Superteam Brazil 🇧🇷</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple-primary: #9945FF;
+            --purple-dark: #7B2FCF;
+            --green-brazil: #009B3A;
+            --blue-brazil: #002776;
+            --yellow-brazil: #FFDF00;
+            --dark-bg: #0A0A0F;
+            --dark-surface: #13131A;
+            --dark-elevated: #1A1A24;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A8A8B8;
+            --gradient-purple: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(153, 69, 255, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-gradient {
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-primary);
+        }
+
+        /* Hero Section */
+        .members-hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
+        }
+
+        .members-hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .members-hero .highlight {
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .members-hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .member-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(153, 69, 255, 0.1);
+            border: 1px solid rgba(153, 69, 255, 0.3);
+            padding: 12px 24px;
+            border-radius: 50px;
+            margin-top: 20px;
+        }
+
+        .member-count-number {
+            font-size: 32px;
+            font-weight: 900;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 60px 0;
+            background: var(--dark-surface);
+            position: sticky;
+            top: 76px;
+            z-index: 100;
+            border-bottom: 1px solid rgba(153, 69, 255, 0.1);
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            background: var(--dark-elevated);
+            border: 1px solid rgba(153, 69, 255, 0.2);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: 'Barlow', sans-serif;
+            transition: all 0.3s ease;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%239945FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.35-4.35'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 16px center;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--purple-primary);
+            box-shadow: 0 0 0 3px rgba(153, 69, 255, 0.1);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: 10px 20px;
+            background: var(--dark-elevated);
+            border: 1px solid rgba(153, 69, 255, 0.2);
+            border-radius: 24px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .filter-tag:hover {
+            border-color: var(--purple-primary);
+            color: var(--purple-primary);
+        }
+
+        .filter-tag.active {
+            background: var(--gradient-purple);
+            color: white;
+            border-color: transparent;
+        }
+
+        .filter-tag.all {
+            border-color: var(--purple-primary);
+        }
+
+        /* Members Grid */
+        .members-section {
+            padding: 80px 0 120px;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .member-card {
+            background: var(--dark-surface);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid rgba(153, 69, 255, 0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .member-card:nth-child(1) { animation-delay: 0.05s; }
+        .member-card:nth-child(2) { animation-delay: 0.1s; }
+        .member-card:nth-child(3) { animation-delay: 0.15s; }
+        .member-card:nth-child(4) { animation-delay: 0.2s; }
+        .member-card:nth-child(5) { animation-delay: 0.25s; }
+        .member-card:nth-child(6) { animation-delay: 0.3s; }
+
+        .member-card.core-team {
+            background: linear-gradient(135deg, rgba(153, 69, 255, 0.15) 0%, rgba(20, 241, 149, 0.08) 100%);
+            border-color: var(--purple-primary);
+        }
+
+        .member-card.core-team::before {
+            content: '⭐';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 20px;
+        }
+
+        .member-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--purple-primary);
+            box-shadow: 0 24px 80px rgba(153, 69, 255, 0.25);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient-purple);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 900;
+            border: 4px solid var(--dark-elevated);
+        }
+
+        .member-name {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .member-role {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .member-company {
+            color: var(--purple-primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin: 16px 0;
+            min-height: 30px;
+        }
+
+        .skill-tag {
+            background: rgba(153, 69, 255, 0.2);
+            color: var(--purple-primary);
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .member-social {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(153, 69, 255, 0.1);
+        }
+
+        .twitter-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .twitter-link:hover {
+            color: var(--purple-primary);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-secondary);
+        }
+
+        .no-results h3 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .no-results p {
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-surface);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(153, 69, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .members-hero h1 {
+                font-size: 40px;
+            }
+
+            .filter-container {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-gradient">Superteam</span> Brazil 🇧🇷
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#mission">Mission</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="index.html#partners">Partners</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="members-hero">
+        <div class="container">
+            <h1>Our <span class="highlight">Community</span></h1>
+            <p>Meet the talented builders, creators, and founders shaping the future of Solana in Brazil</p>
+            <div class="member-count">
+                <span class="member-count-number">500+</span>
+                <span>Active Members</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search members by name...">
+                </div>
+                <div class="filter-tags">
+                    <button class="filter-tag all active" data-filter="all">All Members</button>
+                    <button class="filter-tag" data-filter="Core Team">Core Team</button>
+                    <button class="filter-tag" data-filter="Rust">Rust</button>
+                    <button class="filter-tag" data-filter="Frontend">Frontend</button>
+                    <button class="filter-tag" data-filter="Design">Design</button>
+                    <button class="filter-tag" data-filter="Content">Content</button>
+                    <button class="filter-tag" data-filter="Growth">Growth</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Grid -->
+    <section class="members-section">
+        <div class="container">
+            <div class="members-grid" id="membersGrid">
+                <!-- Core Team Members -->
+                <div class="member-card core-team" data-skills="Core Team,Strategy" data-name="Ana Silva">
+                    <div class="member-avatar">AS</div>
+                    <div class="member-name">Ana Silva</div>
+                    <div class="member-role">Community Lead</div>
+                    <div class="member-company">Superteam Brazil</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Core Team</span>
+                        <span class="skill-tag">Strategy</span>
+                        <span class="skill-tag">Growth</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @anasilva</a>
+                    </div>
+                </div>
+
+                <div class="member-card core-team" data-skills="Core Team,Rust,Backend" data-name="Ricardo Costa">
+                    <div class="member-avatar">RC</div>
+                    <div class="member-name">Ricardo Costa</div>
+                    <div class="member-role">Tech Lead</div>
+                    <div class="member-company">BlockBuilder</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Core Team</span>
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">Backend</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @ricocodes</a>
+                    </div>
+                </div>
+
+                <div class="member-card core-team" data-skills="Core Team,Design,UI/UX" data-name="Fernanda Oliveira">
+                    <div class="member-avatar">FO</div>
+                    <div class="member-name">Fernanda Oliveira</div>
+                    <div class="member-role">Design Lead</div>
+                    <div class="member-company">Superteam Brazil</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Core Team</span>
+                        <span class="skill-tag">Design</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @fedesigns</a>
+                    </div>
+                </div>
+
+                <!-- Regular Members -->
+                <div class="member-card" data-skills="Design,UI/UX" data-name="Marina Pereira">
+                    <div class="member-avatar">MP</div>
+                    <div class="member-name">Marina Pereira</div>
+                    <div class="member-role">Product Designer</div>
+                    <div class="member-company">Solana Labs</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Design</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @marinadesgn</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Frontend,React,TypeScript" data-name="Lucas Nunes">
+                    <div class="member-avatar">LN</div>
+                    <div class="member-name">Lucas Nunes</div>
+                    <div class="member-role">Frontend Developer</div>
+                    <div class="member-company">DeFi Protocol</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Frontend</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @lucasdev</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Content,Marketing,Social" data-name="Carla Mendes">
+                    <div class="member-avatar">CM</div>
+                    <div class="member-name">Carla Mendes</div>
+                    <div class="member-role">Content Creator</div>
+                    <div class="member-company">Independent</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Content</span>
+                        <span class="skill-tag">Marketing</span>
+                        <span class="skill-tag">Social</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @carlacreates</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Growth,Biz Dev,Strategy" data-name="Thiago Santos">
+                    <div class="member-avatar">TS</div>
+                    <div class="member-name">Thiago Santos</div>
+                    <div class="member-role">Founder & CEO</div>
+                    <div class="member-company">NFT Marketplace</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Growth</span>
+                        <span class="skill-tag">Biz Dev</span>
+                        <span class="skill-tag">Strategy</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @thiagobiz</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Rust,Anchor,Smart Contracts" data-name="Julia Almeida">
+                    <div class="member-avatar">JA</div>
+                    <div class="member-name">Julia Almeida</div>
+                    <div class="member-role">Smart Contract Developer</div>
+                    <div class="member-company">Solana Foundation</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">Anchor</span>
+                        <span class="skill-tag">Smart Contracts</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @juliarust</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Growth,Community,Events" data-name="Felipe Rocha">
+                    <div class="member-avatar">FR</div>
+                    <div class="member-name">Felipe Rocha</div>
+                    <div class="member-role">Community Manager</div>
+                    <div class="member-company">Superteam Brazil</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Growth</span>
+                        <span class="skill-tag">Community</span>
+                        <span class="skill-tag">Events</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @felipecommunity</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Frontend,Web3,Solana" data-name="Beatriz Silva">
+                    <div class="member-avatar">BS</div>
+                    <div class="member-name">Beatriz Silva</div>
+                    <div class="member-role">Web3 Developer</div>
+                    <div class="member-company">Jupiter</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Frontend</span>
+                        <span class="skill-tag">Web3</span>
+                        <span class="skill-tag">Solana</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @beasolana</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Rust,Backend,Infrastructure" data-name="Gustavo Costa">
+                    <div class="member-avatar">GC</div>
+                    <div class="member-name">Gustavo Costa</div>
+                    <div class="member-role">Backend Engineer</div>
+                    <div class="member-company">Marinade Finance</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">Backend</span>
+                        <span class="skill-tag">Infrastructure</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @gustavotech</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Design,Branding,Illustration" data-name="Isabela Martins">
+                    <div class="member-avatar">IM</div>
+                    <div class="member-name">Isabela Martins</div>
+                    <div class="member-role">Brand Designer</div>
+                    <div class="member-company">Magic Eden</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Design</span>
+                        <span class="skill-tag">Branding</span>
+                        <span class="skill-tag">Illustration</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @isabeladesign</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Content,Writing,Education" data-name="Daniel Alves">
+                    <div class="member-avatar">DA</div>
+                    <div class="member-name">Daniel Alves</div>
+                    <div class="member-role">Technical Writer</div>
+                    <div class="member-company">Solana Docs</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Content</span>
+                        <span class="skill-tag">Writing</span>
+                        <span class="skill-tag">Education</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @danalves</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Frontend,React,Mobile" data-name="Gabriela Lima">
+                    <div class="member-avatar">GL</div>
+                    <div class="member-name">Gabriela Lima</div>
+                    <div class="member-role">Mobile Developer</div>
+                    <div class="member-company">Phantom Wallet</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Frontend</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Mobile</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @gabimobile</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Growth,Partnerships,Marketing" data-name="Rafael Santos">
+                    <div class="member-avatar">RS</div>
+                    <div class="member-name">Rafael Santos</div>
+                    <div class="member-role">Head of Partnerships</div>
+                    <div class="member-company">Tensor</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Growth</span>
+                        <span class="skill-tag">Partnerships</span>
+                        <span class="skill-tag">Marketing</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @rafaelgrowth</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Rust,DeFi,Smart Contracts" data-name="Paulo Mendes">
+                    <div class="member-avatar">PM</div>
+                    <div class="member-name">Paulo Mendes</div>
+                    <div class="member-role">DeFi Developer</div>
+                    <div class="member-company">Drift Protocol</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">DeFi</span>
+                        <span class="skill-tag">Smart Contracts</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @paulodefi</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Design,Product,Research" data-name="Camila Rodrigues">
+                    <div class="member-avatar">CR</div>
+                    <div class="member-name">Camila Rodrigues</div>
+                    <div class="member-role">Product Designer</div>
+                    <div class="member-company">Jito Labs</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Design</span>
+                        <span class="skill-tag">Product</span>
+                        <span class="skill-tag">Research</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @camilauxr</a>
+                    </div>
+                </div>
+
+                <div class="member-card" data-skills="Content,Video,Social Media" data-name="Roberto Ferreira">
+                    <div class="member-avatar">RF</div>
+                    <div class="member-name">Roberto Ferreira</div>
+                    <div class="member-role">Video Creator</div>
+                    <div class="member-company">YouTube</div>
+                    <div class="member-skills">
+                        <span class="skill-tag">Content</span>
+                        <span class="skill-tag">Video</span>
+                        <span class="skill-tag">Social Media</span>
+                    </div>
+                    <div class="member-social">
+                        <a href="#" class="twitter-link">𝕏 @robertovideo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <h3>No members found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2026 Superteam Brazil · Part of the global Superteam network
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="#">Events</a>
+                    <a href="#">Opportunities</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const memberCards = document.querySelectorAll('.member-card');
+        const noResults = document.getElementById('noResults');
+        const membersGrid = document.getElementById('membersGrid');
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        // Filter by skill tag
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                currentFilter = tag.dataset.filter;
+                filterMembers();
+            });
+        });
+
+        // Search by name
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            filterMembers();
+        });
+
+        function filterMembers() {
+            let visibleCount = 0;
+
+            memberCards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const skills = card.dataset.skills;
+                
+                const matchesSearch = name.includes(currentSearch);
+                const matchesFilter = currentFilter === 'all' || skills.includes(currentFilter);
+
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+                membersGrid.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                membersGrid.style.display = 'grid';
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
